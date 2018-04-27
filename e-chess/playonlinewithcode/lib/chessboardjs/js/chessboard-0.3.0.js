@@ -208,6 +208,7 @@ var CSS = {
   clearfix: 'clearfix-7da63',
   highlight1: 'highlight1-32417',
   highlight2: 'highlight2-9c5d2',
+  highlightbestmove: 'highlightbestmove-32471',
   notation: 'notation-322f9',
   numeric: 'numeric-fc462',
   piece: 'piece-417db',
@@ -1056,7 +1057,7 @@ function captureSquareOffsets() {
 
 function removeSquareHighlights() {
   boardEl.find('.' + CSS.square)
-    .removeClass(CSS.highlight1 + ' ' + CSS.highlight2);
+    .removeClass(CSS.highlight1 + ' ' + CSS.highlight2 + ' ' + CSS.highlightbestmove);
 }
 
 function snapbackDraggedPiece() {
@@ -1147,6 +1148,32 @@ function dropDraggedPieceOnSquare(square) {
 
   // set state
   DRAGGING_A_PIECE = false;
+}
+
+function ShowBestMoveOnBoard(source, piece) {
+  // run their custom onDragStart function
+  // their custom onDragStart function can cancel drag start
+  // set state
+  DRAGGING_A_PIECE = true;
+  DRAGGED_PIECE = piece;
+  DRAGGED_PIECE_SOURCE = source;
+
+  // if the piece came from spare pieces, location is offboard
+  if (source === 'spare') {
+    DRAGGED_PIECE_LOCATION = 'offboard';
+  }
+  else {
+    DRAGGED_PIECE_LOCATION = source;
+  }
+
+  // capture the x, y coords of all squares in memory
+  captureSquareOffsets();
+
+  if (source !== 'spare') {
+    // highlight the source square and hide the piece
+    $('#' + SQUARE_ELS_IDS[source]).addClass(CSS.highlight1)
+      .find('.' + CSS.piece).css('display', 'none');
+  }
 }
 
 function beginDraggingPiece(source, piece, x, y) {

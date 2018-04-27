@@ -4,35 +4,26 @@ var board,
 /*The "AI" part starts here */
 
 var updateByCode = function() {
-
     var move = game.move({
         from: 'a2',
         to: 'a4',
         promotion: 'q'
     });
-
     removeGreySquares();
     if (move === null) {
         return 'snapback';
     }
-
     renderMoveHistory(game.history());
     window.setTimeout(makeBestMove, 250);
 };
 
 var showBestMove = function () {
     var bestMove = getBestMove(game);
-    game.ugly_move(bestMove);
-    board.position(game.fen());
-    renderMoveHistory(game.history());
-    if (game.game_over()) {
-        alert('Game over');
-    }
-    if (game.in_checkmate() === true || game.in_draw() === true ||
-        piece.search(/^b/) !== -1) {
-        return false;
-    }
+    console.log(bestMove);
+    console.log(board.piece);
 };
+
+/*The "original" part starts here */
 
 var minimaxRoot =function(depth, game, isMaximisingPlayer) {
 
