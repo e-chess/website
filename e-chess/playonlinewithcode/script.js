@@ -6,8 +6,8 @@ var board,
 var updateByCode = function() {
 
     var move = game.move({
-        from: 'd2',
-        to: 'd4',
+        from: 'a2',
+        to: 'a4',
         promotion: 'q'
     });
 
