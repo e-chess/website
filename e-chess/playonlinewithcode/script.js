@@ -17,6 +17,24 @@ var updateByCode = function() {
     window.setTimeout(makeBestMove, 250);
 };
 
+var updateByDatabase = function() {
+
+    var source = "<?php echo $source ?>";
+    var target = "<?php echo $target ?>";
+
+    var move = game.move({
+        from: source,
+        to: target,
+        promotion: 'q'
+    });
+    removeGreySquares();
+    if (move === null) {
+        return 'snapback';
+    }
+    renderMoveHistory(game.history());
+    window.setTimeout(makeBestMove, 250);
+};
+
 var showBestMove = function () {
     var bestMove = getBestMove(game);
     console.log(bestMove);
