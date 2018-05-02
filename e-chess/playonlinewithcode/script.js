@@ -1,7 +1,7 @@
 var board,
     game = new Chess();
 
-/*The "AI" part starts here */
+/*The e-chess part starts here */
 
 var updateByCode = function() {
     var move = game.move({
@@ -19,8 +19,9 @@ var updateByCode = function() {
 
 var showBestMove = function () {
     var bestMove = getBestMove(game);
-    console.log(bestMove);
-    console.log(board.piece);
+    var highlightThisFields = Object.entries(bestMove).slice(1,3).map(entry => entry[1]);
+    console.log(highlightThisFields);
+    //game.showBestMoveOnBoard();
 };
 
 /*The "original" part starts here */
