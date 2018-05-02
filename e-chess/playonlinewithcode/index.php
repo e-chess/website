@@ -7,12 +7,17 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 $sql = 'SELECT * 
-		FROM test ';
+		FROM turns ';
 		
 $query = mysqli_query($conn, $sql);
 if (!$query) {
 	die ('SQL Error: ' . mysqli_error($conn));
 }
+
+$source = 'SELECT source FROM turns WHERE id=1';
+$target = 'SELECT target FROM turns WHERE id=1';
+
+
 ?>
 
 <html>
@@ -52,6 +57,7 @@ if (!$query) {
     <span>Positions/s: <span id="positions-per-s"></span> </span>
     <br>
     <button onclick="updateByCode()">A2 - A4</button>
+    <button onclick="updateByDatabase()">update</button>
     <button onclick="showBestMove()">show best move</button>
     <br>
     <div id="move-history" class="move-history">
