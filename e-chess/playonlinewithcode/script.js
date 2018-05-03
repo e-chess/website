@@ -1,5 +1,6 @@
 var board,
     game = new Chess();
+  
 
 /*The e-chess part starts here */
 
@@ -9,6 +10,9 @@ var updateByCode = function() {
         to: 'a4',
         promotion: 'q'
     });
+
+    console.log('peter');
+
     removeGreySquares();
     if (move === null) {
         return 'snapback';
@@ -19,20 +23,28 @@ var updateByCode = function() {
 
 var updateByDatabase = function() {
 
-    var source = "<?php echo $source ?>";
-    var target = "<?php echo $target ?>";
+    var source = getVariables1();
+    var target = getVariables2();
+    //var target = 'a4';
+
+    console.log(source);
+    console.log(target);
 
     var move = game.move({
         from: source,
         to: target,
         promotion: 'q'
     });
+
+
     removeGreySquares();
     if (move === null) {
         return 'snapback';
     }
     renderMoveHistory(game.history());
     window.setTimeout(makeBestMove, 250);
+
+
 };
 
 var showBestMove = function () {

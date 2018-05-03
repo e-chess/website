@@ -6,16 +6,16 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$sql = 'SELECT * 
-		FROM turns ';
-		
-$query = mysqli_query($conn, $sql);
-if (!$query) {
+
+$data = 'SELECT * FROM turns';
+
+$result = mysqli_query($conn, $data);
+if (!$result) {
 	die ('SQL Error: ' . mysqli_error($conn));
 }
-
-$source = 'SELECT source FROM turns WHERE id=1';
-$target = 'SELECT target FROM turns WHERE id=1';
+$row = mysqli_fetch_assoc($result);
+$target = $row["target"];
+$source = $row["source"];
 
 
 ?>
@@ -37,35 +37,49 @@ $target = 'SELECT target FROM turns WHERE id=1';
 <head>
 </head>
 <body>
-<p><a href="https://www.jan-patrick.de/e-chess">to CHESS page</a></p>
-<div id="board" class="board"></div>
-<div class="info">
-    Search depth:
-    <select id="search-depth">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3" selected>3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select>
+    <p><a href="https://www.jan-patrick.de/e-chess">to CHESS page</a></p>
+    <div id="board" class="board"></div>
+        <div class="info">
+            Search depth:
+            <select id="search-depth">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3" selected>3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
 
-    <br>
-    <span>Positions evaluated: <span id="position-count"></span></span>
-    <br>
-    <span>Time: <span id="time"></span></span>
-    <br>
-    <span>Positions/s: <span id="positions-per-s"></span> </span>
-    <br>
-    <button onclick="updateByCode()">A2 - A4</button>
-    <button onclick="updateByDatabase()">update</button>
-    <button onclick="showBestMove()">show best move</button>
-    <br>
-    <div id="move-history" class="move-history">
-    </div>
-</div>
-<script src="lib/jquery/jquery-3.2.1.min.js"></script>
-<script src="lib/chessboardjs/js/chess.js"></script>
-<script src="lib/chessboardjs/js/chessboard-0.3.0.js"></script>
-<script src="script.js"></script>
-    </body>
+            <br>
+            <span>Positions evaluated: <span id="position-count"></span></span>
+            <br>
+            <span>Time: <span id="time"></span></span>
+            <br>
+            <span>Positions/s: <span id="positions-per-s"></span> </span>
+            <br>
+            <button onclick="updateByCode()">A2 - A4</button>
+            <button onclick="updateByDatabase()">update</button>
+            <button onclick="showBestMove()">show best move</button>
+            <br>
+            <div id="move-history" class="move-history"></div>    
+        </div>
+
+    <script> 
+    function getVariables1(){ 
+        var source = <? echo json_encode($source); ?>;  
+        return source;
+    };
+    function getVariables2(){ 
+        var target = <? echo json_encode($target); ?>;  
+        return target;
+    };  
+    </script>
+    <script src="lib/jquery/jquery-3.2.1.min.js"></script>
+    <script src="lib/chessboardjs/js/chess.js"></script>
+    <script src="lib/chessboardjs/js/chessboard-0.3.0.js"></script>
+    <script src="script.js"></script>
+    <!--<script type="text/javascript" src="variables_js.php"></script>-->
+    
+
+
+</body>
 </html>
