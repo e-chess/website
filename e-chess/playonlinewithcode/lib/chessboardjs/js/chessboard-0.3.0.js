@@ -1150,30 +1150,10 @@ function dropDraggedPieceOnSquare(square) {
   DRAGGING_A_PIECE = false;
 }
 
-function ShowBestMoveOnBoard(source, piece) {
-  // run their custom onDragStart function
-  // their custom onDragStart function can cancel drag start
-  // set state
-  DRAGGING_A_PIECE = true;
-  DRAGGED_PIECE = piece;
-  DRAGGED_PIECE_SOURCE = source;
-
-  // if the piece came from spare pieces, location is offboard
-  if (source === 'spare') {
-    DRAGGED_PIECE_LOCATION = 'offboard';
-  }
-  else {
-    DRAGGED_PIECE_LOCATION = source;
-  }
-
-  // capture the x, y coords of all squares in memory
-  captureSquareOffsets();
-
-  if (source !== 'spare') {
-    // highlight the source square and hide the piece
-    $('#' + SQUARE_ELS_IDS[source]).addClass(CSS.highlight1)
-      .find('.' + CSS.piece).css('display', 'none');
-  }
+function showBestMoveOnBoard() {
+  // add highlight to new square
+  boardEl.find('.' + CSS.square)
+  $('#' + SQUARE_ELS_IDS["d2"]).addClass(CSS.highlightbestmove);
 }
 
 function beginDraggingPiece(source, piece, x, y) {

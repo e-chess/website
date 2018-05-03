@@ -208,6 +208,7 @@ var CSS = {
   clearfix: 'clearfix-7da63',
   highlight1: 'highlight1-32417',
   highlight2: 'highlight2-9c5d2',
+  highlightbestmove: 'highlightbestmove-32471',
   notation: 'notation-322f9',
   numeric: 'numeric-fc462',
   piece: 'piece-417db',
@@ -1054,9 +1055,15 @@ function captureSquareOffsets() {
   }
 }
 
+function ShowBestMoveOnBoard() {
+  // add highlight to new square
+  boardEl.find('.' + CSS.square)
+  $('#' + SQUARE_ELS_IDS["d2"]).addClass(CSS.highlightbestmove);
+}
+
 function removeSquareHighlights() {
   boardEl.find('.' + CSS.square)
-    .removeClass(CSS.highlight1 + ' ' + CSS.highlight2);
+    .removeClass(CSS.highlight1 + ' ' + CSS.highlight2 + ' ' + CSS.highlightbestmove);
 }
 
 function snapbackDraggedPiece() {
