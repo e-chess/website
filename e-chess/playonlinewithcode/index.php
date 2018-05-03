@@ -7,15 +7,15 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$source = 'd2';
-$target = 'SELECT * FROM turns';
+$data = 'SELECT * FROM turns';
 
-$result = mysqli_query($conn, $target);
+$result = mysqli_query($conn, $data);
 if (!$result) {
 	die ('SQL Error: ' . mysqli_error($conn));
 }
 $row = mysqli_fetch_assoc($result);
-$targety = $row["target"];
+$target = $row["target"];
+$source = $row["source"];
 
 
 ?>
@@ -69,7 +69,7 @@ $targety = $row["target"];
         return source;
     };
     function getVariables2(){ 
-        var target = <? echo json_encode($targety); ?>;  
+        var target = <? echo json_encode($target); ?>;  
         return target;
     };  
     </script>
