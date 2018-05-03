@@ -14,7 +14,7 @@ if (!$query) {
 	die ('SQL Error: ' . mysqli_error($conn));
 }
 
-$source = "a3";
+$source = 'a2';
 $target = 'SELECT "target" FROM turns';
 
 $targety = mysqli_query($conn, $target);
@@ -68,7 +68,16 @@ if (!$targety) {
             <div id="move-history" class="move-history"></div>    
         </div>
 
-    <script> function getVariables(){ var source = <? echo json_encode($source); ?>; console.log(source); return source;}; </script>
+    <script> 
+    function getVariables1(){ 
+        var source = <? echo json_encode($source); ?>;  
+        return source;
+    };
+    function getVariables2(){ 
+        var target = <? echo json_encode($targety); ?>;  
+        return target;
+    };  
+    </script>
     <script src="lib/jquery/jquery-3.2.1.min.js"></script>
     <script src="lib/chessboardjs/js/chess.js"></script>
     <script src="lib/chessboardjs/js/chessboard-0.3.0.js"></script>
