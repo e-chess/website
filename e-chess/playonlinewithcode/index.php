@@ -6,21 +6,16 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$sql = 'SELECT * 
-		FROM turns ';
-		
-$query = mysqli_query($conn, $sql);
-if (!$query) {
+
+$source = 'd2';
+$target = 'SELECT * FROM turns';
+
+$result = mysqli_query($conn, $target);
+if (!$result) {
 	die ('SQL Error: ' . mysqli_error($conn));
 }
-
-$source = 'a2';
-$target = 'SELECT "target" FROM turns';
-
-$targety = mysqli_query($conn, $target);
-if (!$targety) {
-	die ('SQL Error: ' . mysqli_error($conn));
-}
+$row = mysqli_fetch_assoc($result);
+$targety = $row["target"];
 
 
 ?>

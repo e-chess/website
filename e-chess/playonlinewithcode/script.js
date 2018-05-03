@@ -24,8 +24,8 @@ var updateByCode = function() {
 var updateByDatabase = function() {
 
     var source = getVariables1();
-    //var target = getVariables2();
-    var target = 'a4';
+    var target = getVariables2();
+    //var target = 'a4';
 
     console.log(source);
     console.log(target);
