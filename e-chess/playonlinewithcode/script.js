@@ -37,8 +37,12 @@ var updateByDatabase = function() {
 
 var showBestMove = function () {
     var bestMove = getBestMove(game);
-    var highlightThisFields = Object.entries(bestMove).slice(1,3).map(entry => entry[1]);
-    console.log(highlightThisFields);
+    var highlightThisFieldOne = Object.entries(bestMove).slice(1,2).map(entry => entry[1]);
+    var highlightThisFieldTwo = Object.entries(bestMove).slice(2,3).map(entry => entry[1]);
+    var one = parseInt(highlightThisFieldOne, 10);
+    var two = parseInt(highlightThisFieldTwo, 10);
+    console.log(one);
+    console.log(two);
     //game.showBestMoveOnBoard();
 };
 
