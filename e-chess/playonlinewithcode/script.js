@@ -47,6 +47,13 @@ var updateByDatabase = function() {
 
 };
 
+function parole(){
+
+    console.log("parole");
+};
+
+parole();
+
 var showBestMove = function () {
     var bestMove = getBestMove(game);
     var highlightThisFieldOne = Object.entries(bestMove).slice(1,2).map(entry => entry[1]);
