@@ -31,6 +31,12 @@ if (!$query) {
 <head>
 </head>
 <body>
+<script>
+setInterval(function(){
+    console.log("parole");
+	}, 
+3000);
+</script>	
 <p><a href="https://www.jan-patrick.de/e-chess">to CHESS page</a></p>
 <h1>test database</h1>
 	<table class="data-table">
