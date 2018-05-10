@@ -17,6 +17,7 @@ var SQUARESbestMOVE = {
     96:  "a2", 97:  "b2", 98:  "c2", 99:  "d2", 100: "e2", 101: "f2", 102: "g2", 103: "h2",
     112: "a1", 113: "b1", 114: "c1", 115: "d1", 116: "e1", 117: "f1", 118: "g1", 119: "h1"
 };
+var PLAYERbestMOVE = {p : 'pawn', n: 'knight', b: 'bishop', r: 'rook', q: 'queen', k: 'king'};
 var bestMoveAsString = "";
 
 // update website in milliseconds
@@ -65,11 +66,12 @@ var showBestMove = function () {
     var bestMove = getBestMove(game);
     var from = SQUARESbestMOVE[parseInt(Object.entries(bestMove).slice(1,2).map(entry => entry[1]), 10)];
     var to = SQUARESbestMOVE[parseInt(Object.entries(bestMove).slice(2,3).map(entry => entry[1]), 10)];
+    var piece = PLAYERbestMOVE[(Object.entries(bestMove).slice(4,5).map(entry => entry[1])).toString()];
     console.log(from);
     console.log(to);
+    console.log(piece);
     //game.showBestMoveOnBoard();
-    bestMoveAsString = "Move " + from + " to " + to + ".";
-    //console.log(bestMove);
+    bestMoveAsString = "Move the " + piece + " from " + from + " to " + to + ".";
 };
 
 // event listener for show best move notification
