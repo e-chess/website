@@ -34,7 +34,6 @@ $source = $row["source"];
 <meta name="keywords" content="Jan Schneider, HfG, IoT, Internet der Dinge, Student, Hochschule für Gestaltung, Schwäbisch Gmünd, Gmünd, Internet of Things, Bachelor of Arts, Kikife, Kulturbüro, FSJ, Jan-Patrick, Jan, Schneider">
 <link rel="stylesheet" href="lib/chessboardjs/css/chessboard-0.3.0.css">
 <link rel="stylesheet" href="style.css">
-<script src="notification.js" defer></script>
 <head>
 </head>
 <body>
@@ -60,14 +59,10 @@ $source = $row["source"];
             <button onclick="updateByCode()">A2 - A4</button>
             <button onclick="updateByDatabase()">update</button>
             <button onclick="showBestMove()">show best move</button>
+            <button id="notificationbutton">best move Notification</button>
             <br>
             <div id="move-history" class="move-history"></div>    
         </div>
-        <h4>Einfache Benachrichtigungen</h4>
-	<form action="#">
-        <textarea></textarea>
-		<button id="notificationbutton">Benachrichtigung senden</button>
-    </form>
 
     <!--<script> 
     function getVariables1(){ 

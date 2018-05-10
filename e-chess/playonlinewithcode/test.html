@@ -11,7 +11,6 @@
     <link rel="apple-touch-icon" href="../echess.png" />
     <link rel="stylesheet" href="lib/chessboardjs/css/chessboard-0.3.0.css">
     <link rel="stylesheet" href="style.css">
-    <script src="notification.js" defer></script>
 </head>
 <body>
 <div id="board" class="board"></div>
@@ -34,15 +33,11 @@
     <br>
     <button onclick="updateByCode()">A2 - A4</button>
     <button onclick="showBestMove()">show best move</button>
+    <button id="notificationbutton">best move Notification</button>
     <br>
     <div id="move-history" class="move-history">
     </div>
 </div>
-<h4>Einfache Benachrichtigungen</h4>
-	<form action="#">
-		<textarea></textarea>
-		<button id="notificationbutton">Benachrichtigung senden</button>
-    </form>
 <script src="lib/jquery/jquery-3.2.1.min.js"></script>
 <script src="lib/chessboardjs/js/chess.js"></script>
 <script src="lib/chessboardjs/js/chessboard-0.3.0.js"></script>

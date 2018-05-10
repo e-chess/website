@@ -17,6 +17,7 @@ var SQUARESbestMOVE = {
     96:  "a2", 97:  "b2", 98:  "c2", 99:  "d2", 100: "e2", 101: "f2", 102: "g2", 103: "h2",
     112: "a1", 113: "b1", 114: "c1", 115: "d1", 116: "e1", 117: "f1", 118: "g1", 119: "h1"
 };
+var bestMoveAsString = "";
 
 // update website in milliseconds
 setInterval(parole, 5000);
@@ -67,9 +68,42 @@ var showBestMove = function () {
     console.log(from);
     console.log(to);
     //game.showBestMoveOnBoard();
+    bestMoveAsString = "Move " + from + " to " + to + ".";
+    //console.log(bestMove);
 };
 
-
+// event listener for show best move notification
+document.querySelector('#notificationbutton').addEventListener('click', ev => {
+    ev.preventDefault();
+	if (!('Notification' in window)) {
+		throw new Error('This browser does not support notifications.');
+		return;
+	}
+	const ask = Notification.requestPermission(permission => {
+		if (permission !== 'granted') {
+			alert('Please allow browser notifications!');
+			return;
+        }
+        showBestMove();
+		const txt = bestMoveAsString;
+		if (txt.match(/^\W*$/)) {
+			alert('Something went wrong in showBestMove function');
+			return;
+		}
+		setTimeout(() => {
+			const msg = new Notification('e-chess HELP', {
+				body: txt,
+				lang: 'en',
+				icon: '../echess.svg',
+				image: '../echess.svg'
+			});
+			msg.onclick = ev => alert('You clicked the e-chess notification!');
+			msg.onerror = err => console.error(err);
+			msg.onshow = ev => console.info(ev);
+			msg.onclose = ev => console.info(ev);
+		}, 1000);
+	});
+});
 
 /*
  * The "original" AI part starts here 
