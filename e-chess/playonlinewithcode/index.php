@@ -5,18 +5,25 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
+};
+
+
+function updateNewest($conn, $state){
+    
+    $data = 'SELECT * FROM turns ORDER BY id DESC LIMIT 1';
+    $result = mysqli_query($conn, $data);
+    if (!$result) {
+        die ('SQL Error: ' . mysqli_error($conn));
+    }
+    $row = mysqli_fetch_assoc($result);
+    $target = $row["target"];
+    $source = $row["source"];
+    if($state == "1") {return $source;}
+    else {return $target;};
 }
 
-$data = 'SELECT * FROM turns';
-
-$result = mysqli_query($conn, $data);
-if (!$result) {
-	die ('SQL Error: ' . mysqli_error($conn));
-}
-$row = mysqli_fetch_assoc($result);
-$target = $row["target"];
-$source = $row["source"];
-
+$source = updateNewest($conn, "1");
+$target = updateNewest($conn, "2");
 
 ?>
 
@@ -64,17 +71,17 @@ $source = $row["source"];
             <div id="move-history" class="move-history"></div>    
         </div>
 
-    <!--<script> 
+    <script> 
     function getVariables1(){ 
-        var source = <? //echo json_encode($source); ?>;  
+        var source = <? echo json_encode($source); ?>;  
         return source;
     };
     function getVariables2(){ 
-        var target = <? //echo json_encode($target); ?>;  
+        var target = <? echo json_encode($target); ?>;  
         return target;
     };  
-    </script>-->
-    <script src="variables_js.php"></script>
+    </script>
+    <!--<script src="variables_js.php"></script>-->
     <script src="lib/jquery/jquery-3.2.1.min.js"></script>
     <script src="lib/chessboardjs/js/chess.js"></script>
     <script src="lib/chessboardjs/js/chessboard-0.3.0.js"></script>
