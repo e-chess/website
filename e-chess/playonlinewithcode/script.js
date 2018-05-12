@@ -21,7 +21,7 @@ var PLAYERbestMOVE = {p : 'pawn', n: 'knight', b: 'bishop', r: 'rook', q: 'queen
 var bestMoveAsString = "";
 
 // update website in milliseconds
-setInterval(parole, 5000);
+//setInterval(parole, 5000);
 
 // functions we need for e-chess
 var updateByCode = function() {
@@ -39,10 +39,10 @@ var updateByCode = function() {
     window.setTimeout(makeBestMove, 250);
 };
 
-var updateByDatabase = function() {
-    var source = getVariables1();
-    var target = getVariables2();
-    //var target = 'a4';
+var source;
+var target;
+
+var updateByDatabase = function(source, target) {
     console.log(source);
     console.log(target);
     var move = game.move({
@@ -58,8 +58,20 @@ var updateByDatabase = function() {
     window.setTimeout(makeBestMove, 250);
 };
 
-function parole(){
-    console.log("parole");
+
+function updateLatestEntry(){
+    $.ajax({
+        url : "index.php", 
+        type : "POST", 
+        data : { action: 'myActionToGetHits'},
+        success : function (response) {
+            var data = response.split(/ /);
+            source = data[0];
+            target = data[1];
+            updateByDatabase(source, target);
+        },
+        error : console.log("error trying to post to PHP")
+ });
 };
 
 var showBestMove = function () {

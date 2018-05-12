@@ -20,10 +20,17 @@ function updateNewest($conn, $state){
     $source = $row["source"];
     if($state == "1") {return $source;}
     else {return $target;};
-}
+};
 
-$source = updateNewest($conn, "1");
-$target = updateNewest($conn, "2");
+
+$action = $_POST['action']; 
+
+if("myActionToGetHits" == $action) {
+    $source = updateNewest($conn, "1");
+    $target = updateNewest($conn, "2");
+    echo $source . " " . $target;
+    exit;
+};
 
 ?>
 
@@ -64,24 +71,14 @@ $target = updateNewest($conn, "2");
             <span>Positions/s: <span id="positions-per-s"></span> </span>
             <br>
             <button onclick="updateByCode()">A2 - A4</button>
-            <button onclick="updateByDatabase()">update</button>
+            <button onclick="updateLatestEntry()">update</button>
             <button onclick="showBestMove()">show best move</button>
             <button id="notificationbutton">best move Notification</button>
             <br>
             <div id="move-history" class="move-history"></div>    
         </div>
 
-    <script> 
-    function getVariables1(){ 
-        var source = <? echo json_encode($source); ?>;  
-        return source;
-    };
-    function getVariables2(){ 
-        var target = <? echo json_encode($target); ?>;  
-        return target;
-    };  
-    </script>
-    <!--<script src="variables_js.php"></script>-->
+    
     <script src="lib/jquery/jquery-3.2.1.min.js"></script>
     <script src="lib/chessboardjs/js/chess.js"></script>
     <script src="lib/chessboardjs/js/chessboard-0.3.0.js"></script>
