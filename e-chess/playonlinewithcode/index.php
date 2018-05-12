@@ -25,7 +25,7 @@ function updateNewest($conn, $state){
 
 $action = $_POST['action']; 
 
-if("myActionToGetHits" == $action) {
+if("callingPhpFunction" == $action) {
     $source = updateNewest($conn, "1");
     $target = updateNewest($conn, "2");
     echo $source . " " . $target;
