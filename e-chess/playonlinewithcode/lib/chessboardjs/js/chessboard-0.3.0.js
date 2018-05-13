@@ -1150,12 +1150,6 @@ function dropDraggedPieceOnSquare(square) {
   DRAGGING_A_PIECE = false;
 }
 
-function showBestMoveOnBoard() {
-  // add highlight to new square
-  boardEl.find('.' + CSS.square)
-  $('#' + SQUARE_ELS_IDS["d2"]).addClass(CSS.highlightbestmove);
-}
-
 function beginDraggingPiece(source, piece, x, y) {
   // run their custom onDragStart function
   // their custom onDragStart function can cancel drag start

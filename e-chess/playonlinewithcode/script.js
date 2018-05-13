@@ -79,6 +79,7 @@ function updateLatestEntry(){
     
 };
 
+// returns the best move as string and highlighted pieces
 var showBestMove = function () {
     var bestMove = getBestMove(game);
     var from = SQUARESbestMOVE[parseInt(Object.entries(bestMove).slice(1,2).map(entry => entry[1]), 10)];
@@ -87,7 +88,7 @@ var showBestMove = function () {
     console.log(from);
     console.log(to);
     console.log(piece);
-    //game.showBestMoveOnBoard();
+    highlightSquares(from, to);
     bestMoveAsString = "Move the " + piece + " from " + from + " to " + to + ".";
 };
 
@@ -124,16 +125,24 @@ document.querySelector('#notificationbutton').addEventListener('click', ev => {
 	});
 });
 
-var redSquare = function(square) {
-    var squareEl = $('#board .square-' + square);
+// highlight two pieces
+var highlightSquares = function(from, to) {
+    var squareFrom = $('#board .square-' + from);
+    var squareTo = $('#board .square-' + to);
 
-    var background = '#c7ddf9';
-    if (squareEl.hasClass('black-3c85d') === true) {
-        background = '#4b5c72';
+    var backgroundF = backgroundT = '#42f4e8';
+    if (squareFrom.hasClass('black-3c85d') === true) {
+        backgroundF = '#41a6f4';
+    } else if(squareTo.hasClass('black-3c85d') === true) {
+        backgroundT = '#41a6f4';
     }
-
-    squareEl.css('background', background);
+    squareFrom.css('background', backgroundF);
+    squareTo.css('background', backgroundT);
 };
+
+/*
+ * change the players turn 
+ * */
   
 var updateStatus = function() {
     var status = '';
