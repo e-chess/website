@@ -424,7 +424,7 @@ var onDrop = function (source, target) {
     updateStatus();
     renderMoveHistory(game.history());
     // when you want to let play against computer turn this on (multiplayer off)
-    //window.setTimeout(makeBestMove, 250);
+    window.setTimeout(makeBestMove, 250);
 };
 
 var onSnapEnd = function () {
