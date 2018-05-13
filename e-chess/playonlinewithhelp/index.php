@@ -70,10 +70,8 @@ if("callingPhpFunction" == $action) {
             <br>
             <span>Positions/s: <span id="positions-per-s"></span> </span>
             <br>
-            <button onclick="updateByCode()">A2 - A4</button>
-            <button onclick="updateLatestEntry()">update</button>
-            <button onclick="showBestMove()">highlight best move</button>
-            <button id="notificationbutton">best move Notification</button>
+            <button onclick="showBestMove()">just highlight best move</button>
+            <button id="notificationbutton">best move as notification</button>
             <br>
             <div id="move-history" class="move-history"></div>    
         </div>

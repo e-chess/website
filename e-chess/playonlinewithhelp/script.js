@@ -25,7 +25,7 @@ var PLAYERbestMOVE = {p : 'pawn', n: 'knight', b: 'bishop', r: 'rook', q: 'queen
 var bestMoveAsString = "";
 
 // update website in milliseconds
-setInterval(updateLatestEntry, 5000);
+//setInterval(updateLatestEntry, 5000);
 
 // functions we need for e-chess
 var updateByCode = function() {
