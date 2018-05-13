@@ -7,6 +7,10 @@ var board,
  */
 
 // declare important variables and objects for e-chess 
+statusEl = $('#status'),
+fenEl = $('#fen'),
+pgnEl = $('#pgn');
+
 var SQUARESbestMOVE = {
     0:   "a8", 1:   "b8", 2:   "c8", 3:   "d8", 4:   "e8", 5:   "f8", 6:   "g8", 7:   "h8",
     16:  "a7", 17:  "b7", 18:  "c7", 19:  "d7", 20:  "e7", 21:  "f7", 22:  "g7", 23:  "h7",
@@ -30,7 +34,6 @@ var updateByCode = function() {
         to: 'a4',
         promotion: 'q'
     });
-    console.log('peter');
     removeGreySquares();
     if (move === null) {
         return 'snapback';
@@ -38,7 +41,6 @@ var updateByCode = function() {
     renderMoveHistory(game.history());
     window.setTimeout(makeBestMove, 250);
 };
-
 
 var updateByDatabase = function(source, target) {
     console.log(source);
@@ -59,21 +61,21 @@ var updateByDatabase = function(source, target) {
 var previousResponse = "";
 
 function updateLatestEntry(){  
-        $.ajax({
-            url : "index.php", 
-            type : "POST", 
-            data : { action: 'callingPhpFunction'},
-            success : function (response) {
-                if(response != previousResponse){
-                    var data = response.split(/ /);
-                    source = data[0];
-                    target = data[1];
-                    updateByDatabase(source, target);
-                    previousResponse = response;
-                }
-                else {console.log("cannot update with same values")};
+    $.ajax({
+        url : "index.php", 
+        type : "POST", 
+        data : { action: 'callingPhpFunction'},
+        success : function (response) {
+            if(response != previousResponse){
+                var data = response.split(/ /);
+                source = data[0];
+                target = data[1];
+                updateByDatabase(source, target);
+                previousResponse = response;
             }
-        });
+            else {console.log("cannot update with same values")};
+        }
+    });
     
 };
 
@@ -121,6 +123,50 @@ document.querySelector('#notificationbutton').addEventListener('click', ev => {
 		}, 1000);
 	});
 });
+
+var redSquare = function(square) {
+    var squareEl = $('#board .square-' + square);
+
+    var background = '#c7ddf9';
+    if (squareEl.hasClass('black-3c85d') === true) {
+        background = '#4b5c72';
+    }
+
+    squareEl.css('background', background);
+};
+  
+var updateStatus = function() {
+    var status = '';
+  
+    var moveColor = 'White';
+    if (game.turn() === 'b') {
+      moveColor = 'Black';
+    }
+  
+    // checkmate?
+    if (game.in_checkmate() === true) {
+      status = 'Game over, ' + moveColor + ' is in checkmate.';
+    }
+  
+    // draw?
+    else if (game.in_draw() === true) {
+      status = 'Game over, drawn position';
+    }
+  
+    // game still on
+    else {
+      status = moveColor + ' to move';
+  
+      // check?
+      if (game.in_check() === true) {
+        status += ', ' + moveColor + ' is in check';
+      }
+    }
+  
+    statusEl.html(status);
+    fenEl.html(game.fen());
+    pgnEl.html(game.pgn());
+}; 
 
 /*
  * The "original" AI part starts here 
@@ -304,7 +350,9 @@ var getPieceValue = function (piece, x, y) {
 
 var onDragStart = function (source, piece, position, orientation) {
     if (game.in_checkmate() === true || game.in_draw() === true ||
-        piece.search(/^b/) !== -1) {
+        game.game_over() === true ||
+        (game.turn() === 'w' && piece.search(/^b/) !== -1) ||
+        (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
         return false;
     }
 };
@@ -364,8 +412,10 @@ var onDrop = function (source, target) {
         return 'snapback';
     }
 
+    updateStatus();
     renderMoveHistory(game.history());
-    window.setTimeout(makeBestMove, 250);
+    // when you want to let play against computer turn this on
+    //window.setTimeout(makeBestMove, 250);
 };
 
 var onSnapEnd = function () {
