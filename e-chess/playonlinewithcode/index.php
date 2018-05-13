@@ -51,7 +51,7 @@ if("callingPhpFunction" == $action) {
 <head>
 </head>
 <body>
-    <p><a href="https://www.jan-patrick.de/e-chess">to CHESS page</a></p>
+    <p><a href="https://www.jan-patrick.de/e-chess" id="back">to CHESS page</a></p>
     <div id="board" class="board"></div>
         <div class="info">
             Search depth:
@@ -70,9 +70,10 @@ if("callingPhpFunction" == $action) {
             <br>
             <span>Positions/s: <span id="positions-per-s"></span> </span>
             <br>
-            <button onclick="updateByCode()">A2 - A4</button>
-            <button onclick="updateLatestEntry()">update</button>
-            <button onclick="showBestMove()">highlight best move</button>
+            <form action="#">Move from 
+            <textarea id="from"></textarea> to <textarea id="to"></textarea>
+		    <button onclick="updateByCode()">move</button>
+            </form>
             <button id="notificationbutton">best move Notification</button>
             <br>
             <div id="move-history" class="move-history"></div>    

@@ -29,9 +29,23 @@ setInterval(updateLatestEntry, 5000);
 
 // functions we need for e-chess
 var updateByCode = function() {
+    var from = document.querySelector('#from').value;
+    var to = document.querySelector('#to').value;
+    var f = t = false;
+    Object.keys(SQUARESbestMOVE).forEach(function(key) {
+        if (SQUARESbestMOVE[key] == from) {
+            f = true;
+        }else if (SQUARESbestMOVE[key] == to) {
+            t = true;
+        }
+    });
+    if(!f || !t) {
+        alert("something is wrong");
+        return;
+    }
     var move = game.move({
-        from: 'a2',
-        to: 'a4',
+        from: from,
+        to: to,
         promotion: 'q'
     });
     removeGreySquares();
@@ -39,7 +53,7 @@ var updateByCode = function() {
         return 'snapback';
     }
     renderMoveHistory(game.history());
-    window.setTimeout(makeBestMove, 250);
+    board.position(game.fen());
 };
 
 var updateByDatabase = function(source, target) {
@@ -55,7 +69,7 @@ var updateByDatabase = function(source, target) {
         return 'snapback';
     }
     renderMoveHistory(game.history());
-    window.setTimeout(makeBestMove, 250);
+    board.position(game.fen());
 };
 
 var previousResponse = "";
@@ -364,6 +378,8 @@ var onDragStart = function (source, piece, position, orientation) {
         (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
         return false;
     }
+    // delete this when mouse drag shall be enabled
+    return false;
 };
 
 var makeBestMove = function () {

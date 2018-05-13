@@ -13,6 +13,12 @@
     overflow-y: scroll;
 }
 
+#back {
+    width: 500px;
+    margin: auto;
+    text-align: center;
+}
+
 @media handheld, only screen and (max-width:1040px){
     .board {
         width: 90%;
