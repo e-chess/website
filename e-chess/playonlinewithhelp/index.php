@@ -75,6 +75,9 @@ if("callingPhpFunction" == $action) {
             <br>
             <div id="move-history" class="move-history"></div>    
         </div>
+        <br><br>
+        <br><br>
+        <p><a href="https://www.jan-patrick.de/imprint/">imprint</a></p>
 
     
     <script src="lib/jquery/jquery-3.2.1.min.js"></script>

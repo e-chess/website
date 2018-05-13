@@ -68,5 +68,8 @@ setInterval(function(){
 		}?>
 		</tbody>
 	</table>
+	<br><br>
+	<br><br>
+	<p><a href="https://www.jan-patrick.de/imprint/">imprint</a></p>
     </body>
 </html>
