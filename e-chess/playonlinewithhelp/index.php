@@ -54,14 +54,6 @@ if("callingPhpFunction" == $action) {
     <p><a href="https://www.jan-patrick.de/e-chess">to CHESS page</a></p>
     <div id="board" class="board"></div>
         <div class="info">
-            Search depth:
-            <select id="search-depth">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3" selected>3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
 
             <br>
             <span>Positions evaluated: <span id="position-count"></span></span>

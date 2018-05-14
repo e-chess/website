@@ -81,7 +81,7 @@ function updateLatestEntry(){
 
 // returns the best move as string and highlighted pieces
 var showBestMove = function () {
-    var bestMove = getBestMove(game);
+    var bestMove = findBestMove(game);
     var from = SQUARESbestMOVE[parseInt(Object.entries(bestMove).slice(1,2).map(entry => entry[1]), 10)];
     var to = SQUARESbestMOVE[parseInt(Object.entries(bestMove).slice(2,3).map(entry => entry[1]), 10)];
     var piece = PLAYERbestMOVE[(Object.entries(bestMove).slice(4,5).map(entry => entry[1])).toString()];
@@ -124,6 +124,26 @@ document.querySelector('#notificationbutton').addEventListener('click', ev => {
 		}, 1000);
 	});
 });
+
+var findBestMove = function (game) {
+    if (game.game_over()) {
+        alert('Game over');
+    }
+
+    positionCount = 0;
+    var depth = 3;
+
+    var d = new Date().getTime();
+    var bestMove = minimaxRoot(depth, game, true);
+    var d2 = new Date().getTime();
+    var moveTime = (d2 - d);
+    var positionsPerS = ( positionCount * 1000 / moveTime);
+
+    $('#position-count').text(positionCount);
+    $('#time').text(moveTime/1000 + 's');
+    $('#positions-per-s').text(positionsPerS);
+    return bestMove;
+};
 
 // highlight two pieces
 var highlightSquares = function(from, to) {
@@ -384,7 +404,8 @@ var getBestMove = function (game) {
     }
 
     positionCount = 0;
-    var depth = parseInt($('#search-depth').find(':selected').text());
+    //var depth = parseInt($('#search-depth').find(':selected').text());
+    var depth = 1;
 
     var d = new Date().getTime();
     var bestMove = minimaxRoot(depth, game, true);
