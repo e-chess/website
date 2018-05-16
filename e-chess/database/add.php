@@ -14,9 +14,17 @@
 		VALUES ('" . $data['sensor'] . "', '" . $data['value'] . "')"; 
 
    	// Execute the MySQL-Query: Insert the values into the table "test"
-	mysqli_query($link,$query);
+	if(!mysqli_query($link,$query))
+    {
+        die('Error : ' . mysql_error());
+    }
 
 	// Close the DB-Connection
 	mysqli_close($link);
 
+	$myfile = fopen("testFile.txt", "w") or die("Unable to open file!");
+	$txt = "new request:\n";
+	fwrite($myfile, $txt);
+	fwrite($myfile, $data);
+	fclose($myfile);
 ?>
