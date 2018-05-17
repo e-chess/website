@@ -25,7 +25,7 @@ if (!$query) {
 <link rel="image_src" href="../echess.svg" />
 <link rel="apple-touch-icon" href="../echess.png" />
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
-<meta name="description" content="The CV of Jan Schneider, currently IoT student at HfG Schwäbisch Gmünd"> 
+<meta name="description" content="e-chess is a project by Marcus Schoch and Jan Schneider with Prof. Michael Schuster and Benjamin Thomsen at HfG Schwäbisch Gmünd."> 
 <meta name="keywords" content="Jan Schneider, HfG, IoT, Internet der Dinge, Student, Hochschule für Gestaltung, Schwäbisch Gmünd, Gmünd, Internet of Things, Bachelor of Arts, Kikife, Kulturbüro, FSJ, Jan-Patrick, Jan, Schneider">
 <link href="styledatabase.css" rel="stylesheet">
 <head>
@@ -40,7 +40,7 @@ setInterval(function(){
 <p><a href="https://www.jan-patrick.de/e-chess">to CHESS page</a></p>
 <h1>test database</h1>
 	<table class="data-table">
-		<caption class="title">inserted by ESP32</caption>
+		<caption class="title">inserted by Arduino Mega</caption>
 		<thead>
 			<tr>
 				<th>NO</th>
