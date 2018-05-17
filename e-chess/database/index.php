@@ -45,9 +45,9 @@ setInterval(function(){
 			<tr>
 				<th>NO</th>
 				<th>id</th>
-				<th>player</th>
-				<th>turn</th>
-				<th>insert date</th>
+				<th>source</th>
+				<th>target</th>
+				<th>curtime</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -60,9 +60,9 @@ setInterval(function(){
 			echo '<tr>
 					<td>'.$no.'</td>
 					<td>'.$row['id'].'</td>
-					<td>'.$row['player'].'</td>
-					<td>'.$row['turn'].'</td>
-					<td>'.$row['insertdate'].'</td>
+					<td>'.$row['source'].'</td>
+					<td>'.$row['target'].'</td>
+					<td>'.$row['curtime'].'</td>
 				</tr>';
 			$no++;
 		}?>
