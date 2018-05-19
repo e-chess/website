@@ -51,7 +51,7 @@ if("callingPhpFunction" == $action) {
 <head>
 </head>
 <body>
-    <p><a href="https://www.jan-patrick.de/e-chess">to CHESS page</a></p>
+    <p><a href="https://jan-patrick.de/e-chess">to CHESS page</a></p>
     <div id="board" class="board"></div>
         <div class="info">
 
@@ -69,7 +69,7 @@ if("callingPhpFunction" == $action) {
         </div>
         <br><br>
         <br><br>
-        <p><a href="https://www.jan-patrick.de/imprint/">imprint</a></p>
+        <p><a href="https://jan-patrick.de/imprint/">imprint</a></p>
 
     
     <script src="lib/jquery/jquery-3.2.1.min.js"></script>

@@ -5,7 +5,7 @@
 <br>
 <br>
 <p align="center">
-  These are the files of the project site to <a href="https://www.jan-patrick.de/e-chess">e-chess</a>.
+  These are the files of the project site to <a href="https://jan-patrick.de/e-chess">e-chess</a>.
   <br>
   It is under permanent construction.
   <br>

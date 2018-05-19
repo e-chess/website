@@ -37,7 +37,7 @@ setInterval(function(){
 	}, 
 3000);
 </script>	
-<p><a href="https://www.jan-patrick.de/e-chess">to CHESS page</a></p>
+<p><a href="https://jan-patrick.de/e-chess">to CHESS page</a></p>
 <h1>test database</h1>
 	<table class="data-table">
 		<caption class="title">inserted by Arduino Mega</caption>
@@ -70,6 +70,6 @@ setInterval(function(){
 	</table>
 	<br><br>
 	<br><br>
-	<p><a href="https://www.jan-patrick.de/imprint/">imprint</a></p>
+	<p><a href="https://jan-patrick.de/imprint/">imprint</a></p>
     </body>
 </html>
