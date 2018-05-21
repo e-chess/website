@@ -80,7 +80,7 @@ if("callingPhpFunction" == $action) {
         </div>
         <br><br>
         <br><br>
-        <p><a href="https://jan-patrick.de/imprint/">imprint</a></p>
+        <p><a href="https://jan-patrick.de/imprint/">imprint & data protection</a></p>
 
     
     <script src="lib/jquery/jquery-3.2.1.min.js"></script>

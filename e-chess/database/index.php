@@ -70,6 +70,6 @@ setInterval(function(){
 	</table>
 	<br><br>
 	<br><br>
-	<p><a href="https://jan-patrick.de/imprint/">imprint</a></p>
+	<p><a href="https://jan-patrick.de/imprint/">imprint & data protection</a></p>
     </body>
 </html>
