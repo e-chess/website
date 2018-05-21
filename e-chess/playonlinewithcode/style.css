@@ -1,6 +1,6 @@
 .board {
     width: 500px;
-    margin: auto
+    margin: auto;
 }
 
 .info {
@@ -19,6 +19,12 @@
     text-align: center;
 }
 
+#bot {
+    width: 500px;
+    height: 200px;
+    margin: auto;
+}
+
 @media handheld, only screen and (max-width:1040px){
     .board {
         width: 90%;
@@ -33,5 +39,11 @@
     .move-history {
         max-height: 20%;
         overflow-y: scroll;
-    }    
+    } 
+
+    #bot {
+        width: 90%;
+        height: 150px;
+        margin: auto;
+    }   
 }

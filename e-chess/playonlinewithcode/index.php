@@ -79,6 +79,7 @@ if("callingPhpFunction" == $action) {
             <div id="move-history" class="move-history"></div>    
         </div>
         <br><br>
+        <iframe id="bot" src='https://webchat.botframework.com/embed/e-chess?s=Jqx5aqm1iVY.cwA.DUA.AedfCL_eZjvZ1Ivds4EpakscHxXunGXP2QRnCL7qCcw'></iframe>
         <br><br>
         <p><a href="https://jan-patrick.de/imprint/">imprint & data protection</a></p>
 
