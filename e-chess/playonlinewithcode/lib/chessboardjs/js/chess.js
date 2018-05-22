@@ -1599,6 +1599,54 @@ var Chess = function(fen) {
             return pretty_move;
         },
 
+        check_move: function(move, options) {
+            /* The check_move function can be called with in the following parameters:
+             *
+             * .check_move('Nxb7')      <- where 'move' is a case-sensitive SAN string
+             *
+             * .check_move({ from: 'h7', <- where the 'move' is a move object (additional
+             *         to :'h8',      fields are ignored)
+             *         promotion: 'q',
+             *      })
+             */
+
+            // allow the user to specify the sloppy move parser to work around over
+            // disambiguation bugs in Fritz and Chessbase
+            var sloppy = (typeof options !== 'undefined' && 'sloppy' in options) ?
+                options.sloppy : false;
+
+            var move_obj = null;
+
+            if (typeof move === 'string') {
+                move_obj = move_from_san(move, sloppy);
+            } else if (typeof move === 'object') {
+                var moves = generate_moves();
+
+                /* convert the pretty move object to an ugly move object */
+                for (var i = 0, len = moves.length; i < len; i++) {
+                    if (move.from === algebraic(moves[i].from) &&
+                        move.to === algebraic(moves[i].to) &&
+                        (!('promotion' in moves[i]) ||
+                        move.promotion === moves[i].promotion)) {
+                        move_obj = moves[i];
+                        break;
+                    }
+                }
+            }
+
+            /* failed to find move */
+            if (!move_obj) {
+                return null;
+            }
+
+            /* need to make a copy of move because we can't generate SAN after the
+             * move is made
+             */
+            var pretty_move = make_pretty(move_obj);
+
+            return pretty_move;
+        },
+
         ugly_move: function(move_obj, options) {
             var pretty_move = make_pretty(move_obj);
             make_move(move_obj);

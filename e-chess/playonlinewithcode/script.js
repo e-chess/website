@@ -23,6 +23,7 @@ var SQUARESbestMOVE = {
 };
 var PLAYERbestMOVE = {p : 'pawn', n: 'knight', b: 'bishop', r: 'rook', q: 'queen', k: 'king'};
 var bestMoveAsString = "";
+var previousResponse = "";
 
 // update website in milliseconds
 setInterval(updateLatestEntry, 5000);
@@ -31,16 +32,8 @@ setInterval(updateLatestEntry, 5000);
 var updateByCode = function() {
     var from = document.querySelector('#from').value;
     var to = document.querySelector('#to').value;
-    var f = t = false;
-    Object.keys(SQUARESbestMOVE).forEach(function(key) {
-        if (SQUARESbestMOVE[key] == from) {
-            f = true;
-        }else if (SQUARESbestMOVE[key] == to) {
-            t = true;
-        }
-    });
-    if(!f || !t) {
-        alert("something is wrong");
+    if(!checkmove(from, to)){
+        console.log("wrong move");
         return;
     }
     var move = game.move({
@@ -59,6 +52,10 @@ var updateByCode = function() {
 var updateByDatabase = function(source, target) {
     console.log(source);
     console.log(target);
+    if(!checkmove(source, target)){
+        console.log("wrong move");
+        return;
+    }
     var move = game.move({
         from: source,
         to: target,
@@ -72,7 +69,33 @@ var updateByDatabase = function(source, target) {
     board.position(game.fen());
 };
 
-var previousResponse = "";
+var checkmove = function(from, to) {
+    var f = t = false;
+    Object.keys(SQUARESbestMOVE).forEach(function(key) {
+        if (SQUARESbestMOVE[key] == from) {
+            f = true;
+        }else if (SQUARESbestMOVE[key] == to) {
+            t = true;
+        }
+    });
+    if(!f || !t) {
+        alert("wrong input");
+        return;
+    }
+    var checkedmove = game.check_move({
+        from: from,
+        to: to,
+        promotion: 'q'
+    });
+    if (checkedmove === null) {
+        //checkedmove = "wrong";
+        return false;
+    } else {
+        //checkedmove = "right";
+        return true;
+    }
+    //console.log(checkedmove);
+};
 
 function updateLatestEntry(){  
     $.ajax({
