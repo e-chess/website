@@ -22,7 +22,6 @@ function updateNewest($conn, $state){
     else {return $target;};
 };
 
-
 $action = $_POST['action']; 
 
 if("callingPhpFunction" == $action) {
