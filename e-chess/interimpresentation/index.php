@@ -10,7 +10,7 @@ if ($conn->connect_error) {
 
 function updateNewest($conn, $state){
     
-    $data = 'SELECT * FROM turns ORDER BY id DESC LIMIT 1';
+    $data = 'SELECT * FROM test ORDER BY id DESC LIMIT 1';
     $result = mysqli_query($conn, $data);
     if (!$result) {
         die ('SQL Error: ' . mysqli_error($conn));
@@ -37,7 +37,7 @@ if("callingPhpFunction" == $action) {
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>test chess - E-CHESS</title>
+<title>E-CHESS</title>
 <link rel="shortcut icon" href="../echess.png">
 <link rel="icon" type="image/png" href="../echess.svg">
 <link rel="image_src" href="../echess.svg" />
@@ -60,26 +60,18 @@ if("callingPhpFunction" == $action) {
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
-
             <br>
             <span>Positions evaluated: <span id="position-count"></span></span>
             <br>
             <span>Time: <span id="time"></span></span>
             <br>
             <span>Positions/s: <span id="positions-per-s"></span> </span>
-            <br>
-            <form action="#">Move from 
-            <textarea id="from"></textarea> to <textarea id="to"></textarea>
-		    <button onclick="updateByCode()">move</button>
-            </form>
-            <button id="notificationbutton">best move Notification</button>
+            <br>        
             <br>
             <div id="move-history" class="move-history"></div>    
         </div>
-        <br><br>
-        <iframe id="bot" src='https://webchat.botframework.com/embed/e-chess?s=Jqx5aqm1iVY.cwA.DUA.AedfCL_eZjvZ1Ivds4EpakscHxXunGXP2QRnCL7qCcw'></iframe>
-        <br><br>
-        <p><a href="https://jan-patrick.de/imprint/">imprint & data protection</a></p>
+        <p><button id="notificationbutton">show best move</button></p>
+        <p id="imprint"><a href="https://jan-patrick.de/imprint/">imprint & data protection</a></p>
 
     <div id="reload">
 	<a href=""><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100%" width="auto" viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">
@@ -113,13 +105,13 @@ if("callingPhpFunction" == $action) {
 </svg></a>
 </div>
 <div id="back">
-	<a href="https://jan-patrick.de/e-chess/playonlinewithhelp/"><svg version="1.1" id="emoji" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100%" width="auto" viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">
+	<a href="https://jan-patrick.de/e-chess/playonlinewithcode/"><svg version="1.1" id="emoji" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100%" width="auto" viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">
    <polygon id="_x2B05__xFE0F_" fill="#3F3F3F" stroke="#1D1D1B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
 	   22.8,51.5 5,35 22.8,18.5 26.6,22.6 16.2,32.3 67,32.3 67,37.8 16.2,37.8 26.6,47.5 "/>
    </svg></a>
 </div>
 <div id="forward">
-	<a href="https://jan-patrick.de/e-chess/interimpresentation/"><svg version="1.1" id="emoji" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100%" width="auto" viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">
+	<a href="https://jan-patrick.de/e-chess/"><svg version="1.1" id="emoji" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100%" width="auto" viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">
    <polygon id="_x27A1__xFE0F_" fill="#3F3F3F" stroke="#1D1D1B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
 	   49.2,51.5 67,35 49.2,18.5 45.4,22.6 55.8,32.3 5,32.3 5,37.8 55.8,37.8 45.4,47.5 "/>
    </svg></a>
