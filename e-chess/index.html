@@ -14,7 +14,6 @@
     	* { font-family: 'Source Sans Pro', sans-serif; }
 
 		body { 
-			font-family: Verdana, Arial, sans-serif;
 			margin: 2em;
 			margin-left: 20%; 
 			font-size: 100%;
@@ -23,54 +22,34 @@
 			-ms-hyphens: auto;
 			hyphens: auto; 
 			background-color: #000000;
-			background: url(background.svg);
-			background-size: cover;
+			height: 100%;
+			width: auto;
 		}
-
-		p { 
-			max-width: 50em;	
+		p {
+			position: fixed;
+			bottom: 5%;
+			left: 0%; 
+			width: 100%;	
 			font-size: 1.2em;
 			line-height: 1.5em;
 			margin-left: 2%;
 			color: #ffffff;
+			text-align: center;
+			opacity: 0.6;
+			-webkit-transition: 0.5s;
+			-moz-transition:0.5s;
+			transition: 0.5s
+		}
+		p:hover{
+			opacity: 1;
 		}
 
 		a {
-			color: #ffffcc;
-		}
-
-		a:hover {
+			color: #ffffff;
 			text-decoration: none;
 		}
 
-		h1 {
-			margin-bottom: 5%;
-			font-weight: bold;
-			font-size: 5em;
-			color: #ffffff;
-		}
-
-		h2 {
-			font-weight: bold;
-			font-size: 2.7em;
-			margin-left: 0%;
-			margin-top: 5%;
-			margin-bottom: 0%;
-			color: #ffffff;
-		}
-
-		h3 {
-			font-weight: bold;
-			margin-left: 0%;
-			font-size: 2.2em;
-			margin-top: 3%;
-			color: #ffffff;
-		}
-		img {
-			width: 10%;
-			height: auto;
-		}
-		#reload {
+		#icon {
 			height: 5%;
 			width: auto;    
 			background: none; 
@@ -80,158 +59,89 @@
 			-moz-transition:0.5s;
 			transition: 0.5s; 
 			position: fixed;       
-			left: 1%;
-			top: 2%;
 			z-index: 10;
 			padding:0.2%;   
-			margin-right:1%; 
+			margin: auto; 
 			transform-style: flat;
 			font-size: 1.47rem;
-		}
-		#reload:hover{
-			transform: scale(1.1);   
-		}
-		#back {
-			height: 5%;
-			width: auto;    
-			background: none; 
-			opacity: 1;  
-			border-radius: 5%;
-			-webkit-transition: 0.5s;
-			-moz-transition:0.5s;
-			transition: 0.5s; 
-			position: fixed;       
-			left: 1%;
-			bottom: 2%;
-			z-index: 10;
-			padding:0.2%;   
-			margin-right:1%; 
-			transform-style: flat;
-			font-size: 1.47rem;
-		}
-		#back:hover{
-			transform: scale(1.1);   
-		}
-		#forward {
-			height: 5%;
-			width: auto;    
-			background: none; 
-			opacity: 1;  
-			border-radius: 5%;
-			-webkit-transition: 0.5s;
-			-moz-transition:0.5s;
-			transition: 0.5s; 
-			position: fixed;       
-			right: 1%;
-			bottom: 2%;
-			z-index: 10;
-			padding:0.2%;   
-			margin-right:1%; 
-			transform-style: flat;
-			font-size: 1.47rem;
-		}
-		#forward:hover{
-			transform: scale(1.1);   
-		}
-
-		@media handheld, only screen and (max-width: 1000px){
-			
-			body { 
-				margin-left: 2%; 
+			position:fixed;
+    		top: 50%;
+    		left: 50%;
+    		width:20em;
+    		height:20em;
+    		margin-top: -10em; /*set to a negative number 1/2 of your height*/
+    		margin-left: -10em; /*set to a negative number 1/2 of your width*/
+			animation: bounce 3s infinite;
+  			-webkit-animation: bounce 3s infinite;
+ 		 	-moz-animation: bounce 3s infinite;
+  			-o-animation: bounce 3s infinite;
+			}
+			#icon:hover{
+				transform: scale(1.1);   
 			}
 
-			p { 
-				font-size: 2.5em;
-				line-height: 1.4em;
+			@keyframes bounce {
+				0%, 20%, 50%, 80%, 100% {
+					-webkit-transform: translateY(0);
+				}
+				40% {
+					-webkit-transform: translateY(-30px);
+				}
+				60% {
+					-webkit-transform: translateY(-15px);
+				}
 			}
-
-			h1 {
-			margin-top: 2%;
-			font-weight: bold;
-			font-size: 4.5em;
-			}
-
-			h2 {
-			margin-top: 2%;
-			font-weight: bold;
-			font-size: 3.2em;
-			}
-
-			h3 {
-			margin-top: 2%;
-			font-weight: bold;
-			font-size: 3.2em;
-			}
-			#reload{
-				display: none;
-			}
-			#back{
-				display: none;
-			}
-			#forward{
-				display: none;
-			}
-
-			#nomobile{
-				display: none;
-			}
-
-			img {
-			width: 50%;
-			height: auto;
-		}
-		}	
-
+			@media handheld, only screen and (max-width: 1000px){
+				
+				body { 
+					margin-left: 2%; 
+				}
+				p { 
+					font-size: 2.5em;
+					line-height: 1.4em;
+				}
+			}	
 		</style>
 
 	</head>
 
 <body>
 
-
-<h1>E-CHESS by <br> Marcus Schoch & Jan Schneider</h1>
-
-
-<h2><a href="https://github.com/e-chess">GitHub</a></h2>
-
-
-<p>e-chess is a project at HfG Schwäbisch Gmünd by Marcus Schoch and Jan Schneider with Prof. Michael Schuster and Benjamin Thomsen in the third semester, the summer semester 2018.</p>
-
-<p><a href="https://jan-patrick.de/e-chess/database/">Database</a></p>
-
-<p><a href="https://jan-patrick.de/e-chess/playchess/">play online chess</a></p>
-
-<p><a href="https://jan-patrick.de/e-chess/playonlinewithhelp/">play online chess with help of an ai against an ai</a></p>
-
-<p><a href="https://jan-patrick.de/e-chess/playonlinewithcode/">playground for testing our newest code</a></p>
-
-<p><a href="https://jan-patrick.de/e-chess/login/">future login page</a></p>
-
-<br><br>
-<br><br>
 <p><a href="https://jan-patrick.de/imprint/">imprint & data protection</a></p>
 
-<div id="reload">
-	<a href=""><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100%" width="auto" viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">
-   <g id="_xD83D__xDD04_">	   
-		   <path fill="#3F3F3F" stroke="#1D1D1B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-		   M20.8,30.4l-3.7,4.1c0.7-7.7,5.6-14.4,13-17c2.1-0.8,4.4-1.2,6.6-1.2c5.5,0,10.8,2.4,14.5,6.5l0.6,0.7l3.9-3.6L55,19.2
-		   C50.3,14,43.6,11,36.6,11c-2.8,0-5.7,0.5-8.4,1.5c-9.2,3.3-15.6,11.8-16.4,21.6l-3.3-3.6l-3.3,3.1L14.7,44l9.5-10.4L20.8,30.4z"/>	   
-		   <path fill="#3F3F3F" stroke="#1D1D1B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-		   M67,38.3l-9.5-10.5l-9.5,10.4l3.3,3.1l3.7-4.1c-0.6,7.7-5.6,14.4-13,17.1c-2.1,0.8-4.4,1.2-6.6,1.2c-5.5,0-10.8-2.4-14.5-6.5
-		   l-0.6-0.7l-3.9,3.6l0.6,0.7C21.9,58,28.6,61,35.6,61c2.8,0,5.7-0.5,8.4-1.5c9.2-3.4,15.6-11.9,16.4-21.7l3.3,3.7L67,38.3z"/>
-   </g></svg></a>
-</div>
-<div id="back">
-	<a href="https://jan-patrick.de"><svg version="1.1" id="emoji" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100%" width="auto" viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">
-   <polygon id="_x2B05__xFE0F_" fill="#3F3F3F" stroke="#1D1D1B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
-	   22.8,51.5 5,35 22.8,18.5 26.6,22.6 16.2,32.3 67,32.3 67,37.8 16.2,37.8 26.6,47.5 "/>
-   </svg></a>
-</div>
-<div id="forward">
-	<a href="https://jan-patrick.de/e-chess/database"><svg version="1.1" id="emoji" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100%" width="auto" viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">
-   <polygon id="_x27A1__xFE0F_" fill="#3F3F3F" stroke="#1D1D1B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
-	   49.2,51.5 67,35 49.2,18.5 45.4,22.6 55.8,32.3 5,32.3 5,37.8 55.8,37.8 45.4,47.5 "/>
-   </svg></a>
+<div id="icon">
+	<a href="hello.html"><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+		<svg version="1.1" id="emoji" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100%" width="auto"" viewBox="0 0 599.5 599.5" enable-background="new 0 0 599.5 599.5" xml:space="preserve">
+		<g id="_xD83D__xDC34__14_">
+			<path fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M629,503.688"/>
+			<path fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M558.844,314.262"/>
+			<path fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M254.829,362.205c0,0,99.391,79.512,0,219.826"/>
+			<path fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M376.973,113.796c59.148,28.579,113.779,106.293,120.981,234.442c1.162,20.674,3.792,43.6,8.158,67.139
+				c11.389,61.393,34.585,126.963,74.342,167.654"/>
+			<path fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M286.399,233.581c5.847,98.222-108.744,113.421-140.313,120.437c-3.509,1.17-7.017,3.51-10.523,5.848l-24.555,25.725
+				c-3.509,3.51-9.354,5.848-15.201,5.848H54.88c-14.032,0-26.895-9.354-31.571-22.217l-5.847-18.709
+				c-3.51-9.354-2.34-18.707,3.508-26.895L123.866,152.9l54.957-54.955l-24.556-80.683c0,0,91.204-8.186,98.22,61.974
+				c0,0,30.171,3.625,55.467,10.977"/>
+			<path fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M471.147,269.83"/>
+			<path fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M237.29,35.971"/>
+			<path fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M530.782,560.982"/>
+			<path fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M459.455,142.375"/>
+			<circle fill="#ffffff" cx="161.286" cy="210.196" r="23.386"/>
+		</g>
+		<path fill="none" stroke="#ffffff" stroke-width="23" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M307.954,90.212c0,0,55.428-28.672,69.687-26.038C507.8,88.212,550.486,182.643,545.8,343.547
+			c-2,68.666,18.416,88.771,39.334,105.332"/>
+		<path fill="none" stroke="#ffffff" stroke-width="23" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M254.829,582.031c0,0,167.091-55.791,266.626-8.791"/>
+		</svg></a>
 </div>
 </body></html>
