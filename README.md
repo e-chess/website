@@ -12,7 +12,7 @@
 </p>  
 <h4 align="center">Attribution</h4>
 <p align="center">
-  <a href="https://github.com/lhartikk/simple-chess-ai">simplsense-chess-ai</a>
+  <a href="https://github.com/lhartikk/simple-chess-ai">simple-chess-ai</a>
   <br>
   <a href="https://github.com/oakmac/chessboardjs">chessboardjs</a>
   <br>
