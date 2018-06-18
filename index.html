@@ -9,6 +9,26 @@
 		<link rel="icon" type="image/png" href="img/sense-chess.svg">
 		<link rel="image_src" href="img/sense-chess.svg" />
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+		<!-- App Icons -->
+		<link rel="apple-touch-icon" sizes="57x57" href="img/icons/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="img/icons/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="img/icons/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="img/icons/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="img/icons/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="img/icons/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="img/icons/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="img/icons/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="img/icons/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="img/icons/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png">
+		<link rel="manifest" href="img/icons/manifest.json">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="img/icons/ms-icon-144x144.png">
+		<meta name="theme-color" content="#ffffff">
+
+
 		<style type="text/css">
 
     	* { font-family: 'Source Sans Pro', sans-serif; }
@@ -116,7 +136,7 @@
 
 <div id="icon">
 	<a href="https://github.com/sense-chess"><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-		<svg version="1.1" id="emoji" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100%" width="auto"" viewBox="0 0 599.5 599.5" enable-background="new 0 0 599.5 599.5" xml:space="preserve">
+		<svg version="1.1" id="emoji" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100%" width="auto" viewBox="0 0 599.5 599.5" enable-background="new 0 0 599.5 599.5" xml:space="preserve">
 		<g id="_xD83D__xDC34__14_">
 			<path fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
 				M629,503.688"/>
@@ -149,4 +169,21 @@
 			M254.829,582.031c0,0,167.091-55.791,266.626-8.791"/>
 		</svg></a>
 </div>
+
+<script type="text/javascript">
+//This is the "Offline copy of pages" service worker
+
+//Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+if (navigator.serviceWorker.controller) {
+  console.log('[PWA Builder] active service worker found, no need to register')
+} else {
+  //Register the ServiceWorker
+  navigator.serviceWorker.register('pwabuilder-sw.js', {
+    scope: './'
+  }).then(function(reg) {
+    console.log('Service worker has been registered for scope:'+ reg.scope);
+  });
+}
+</script>
+
 </body></html>
