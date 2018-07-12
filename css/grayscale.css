@@ -208,7 +208,6 @@
 .signup-section .form-inline input {
   box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
   padding: 1.25rem 2rem;
-  font-family: 'Varela Round';
   font-size: 80%;
   text-transform: uppercase;
   letter-spacing: 0.15rem;
@@ -226,7 +225,6 @@
 
 .contact-section .card h4 {
   font-size: 0.8rem;
-  font-family: 'Varela Round';
   text-transform: uppercase;
   letter-spacing: 0.15rem;
 }
@@ -260,7 +258,6 @@
 }
 
 body {
-  font-family: 'Nunito';
   letter-spacing: 0.0625em;
 }
 
