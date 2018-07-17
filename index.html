@@ -89,7 +89,7 @@
         <!-- Featured Project Row -->
         <div class="row align-items-center no-gutters mb-4 mb-lg-5">
           <div class="col-xl-8 col-lg-7">
-            <img class="img-fluid mb-3 mb-lg-0" src="img/touch.jpg" alt="">
+            <img class="img-fluid mb-3 mb-lg-0" src="img/touch.jpg" alt="Konzept">
           </div>
           <div class="col-xl-4 col-lg-5">
             <div class="featured-text text-left text-lg-left">
@@ -106,7 +106,7 @@
         <!-- Project One Row -->
         <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
           <div class="col-lg-6">
-            <img class="img-fluid" src="img/black.jpg" alt="">
+            <img class="img-fluid" src="img/black.jpg" alt="Interaktion">
           </div>
           <div class="col-lg-6">
             <div class="bg-black text-center h-100 project">
@@ -136,7 +136,7 @@
         <!-- Project Two Row -->
         <div class="row justify-content-center no-gutters">
           <div class="col-lg-6">
-            <img class="img-fluid" src="img/board.jpg" alt="">
+            <img class="img-fluid" src="img/board.jpg" alt="Gestaltung">
           </div>
           <div class="col-lg-6 order-lg-first">
             <div class="bg-black text-center h-100 project">
@@ -165,24 +165,51 @@
 
         <!-- Project Three Row -->            
         <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
-            <div class="col-lg-6">
-            <iframe width=100% height=100% src="https://xd.adobe.com/embed/7143524f-f33d-4931-6f14-901d77ad714d-0772/?hints=off" frameborder="0" allowfullscreen></iframe>  
+          <div class="col-lg-6">
+            <img class="img-fluid" src="img/matrix.jpg" alt="Aufbau">
           </div>
               <div class="col-lg-6">
                 <div class="bg-black text-center h-100 project">
                   <div class="d-flex h-100">
                     <div class="project-text w-100 my-auto text-left text-lg-left">
-                      <h4 class="text-white">Prototyp</h4>
-                      <p class="mb-0 text-white-50">Die Anwendung, über die die Spieler Ihre Daten einsehen, ausgebenen und auswerten lassen können haben wir prototypisch mit Adobe XD erstellt. Dieser ist hier zum Testen eingebunden.
-                        <br><br>Die Anwendung ist passend zur sonstigen Gestaltung - einfach, klar und übersichtlich. Die Grundfunktionen sind funktionstüchtig und können einen Überblick über das Gesamtkonzept geben.
-                        <br><br>Unter <a href="https://xd.adobe.com/view/7143524f-f33d-4931-6f14-901d77ad714d-0772/?hints=off" target="_blank">diesem Link</a> kann der Prototyp auch im Vollbildmodus betrachtet werden. Er ist auf ein iPad2 ausgelegt.
-                      </p>
+                      <h4 class="text-white">Aufbau</h4>
+                      <p class="mb-0 text-white-50">Grundlage des Ganzen ist die Erkennung des Feldes der Spielfgur bei Berührung. Da unser Anspruch, das Spielfeld wie ein herkömmliches Brett zu
+                          gestalten in dieser Hinsicht eine gestalterische und technische Herausforderung ist, haben wir uns für die Verwendung von kapazitiven Sensoren entschieden, da wir
+                          so durch die Brettoberﬂäche hindurch die Berührung der Figuren erkennen können. <br><br>
+                          Dieses Prinzip basiert darauf, dass ein Arduino mittels zweier Pins einen Stromkreis bilden und die Zeit messen kann, die die vorgegebene Menge an Ladung benötigt um den anderen Pin zu erreichen.
+                          Diese Zeit wird verlängert, wenn sich eine größere Masse dem Sensor nähert, in unserem Fall der Körper des Spielers. Somit wird die Berührung messbar und nachverfolgbar. Da das Spiel immer mit derselben Startposition der
+                          Figuren beginnt können wir so, wenn die Figur hochgehoben und, wenn die Figur gesetzt wird, ganze Spielzüge erkennen und über die Dauer der veränderten Werte auch die Berührdauer feststellen. Für diese Technik spricht auch unser Anspruch keine 64 Sensoren, sondern eine Sensormatrix zu verbauen.</p>
                       <hr class="d-none d-lg-block mb-0 ml-0">
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+        
+        <!-- Project Four Row -->
+        <div class="row justify-content-center no-gutters">
+            <div class="col-lg-6">
+              <img class="img-fluid" src="img/lightfields.jpg" alt="Gestaltung">
+            </div>
+            <div class="col-lg-6 order-lg-first">
+              <div class="bg-black text-center h-100 project">
+                <div class="d-flex h-100">
+                  <div class="project-text w-100 my-auto text-left text-lg-right">
+                    <h4 class="text-white">Datenverarbeitung</h4>
+                    <p class="mb-0 text-white-50">Die Verarbeitung der Daten fndet komplett auf unserem Server statt. Dort liegt die Datenbank, die JavaScript Bibliotheken (das Schachbrett samt Figuren, die Schachregeln und die
+                        Schachintelligenz) und die Zusammenführung aus allen Teilen, ebenfalls in JavaScript. Wird ein neues Feld in die „boardinput“ Datenbank gespeichert wird dies vom Code
+                        erkannt und in Zusammenhang mit den vorherigen Eingaben geprüft. Wird aus dem vorher erkannten Feld ein valider Zug erkannt, wird dieser gefahren, um den digitalen
+                        Zwilling des Bretts aktuell zu halten und der Zug in die Datenbank gespeichert, um das Spiel später nachverfolgen zu können. Wird kein valider Zug erkannt wird geprüft, ob
+                        das eingegangene Feld eine valide Eingabe ist, oder zum Beispiel eine Berührung der falschen Farbe. Wenn hier
+                        eine Figur der richtigen Farbe berührt wird, wird der aktuelle Status der Figur erhöht und je nachdem wie hoch der
+                        Status ist, eine Unterstützung in Form von zu beleuchtenden Feldern berechnet. Dabei wird bei einem neu erhaltenen Feld einmal alles berechnet (valide Züge, bester
+                        Zug der berührten Figur, beste Figur für einen Zug, bester aktuell möglicher Zug), gespeichert und anschließend nur noch abgefragt. 
+                        <hr class="d-none d-lg-block mb-0 mr-0">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
 
@@ -261,7 +288,7 @@
     <!-- Footer -->
     <footer class="bg-black small text-center text-white-50">
       <div class="container">
-        <p>Copyright &copy; <a href="https://jan-patrick.de" target="_blank">Jan Schneider</a> | Marcus Schoch 2018<br>
+        <p>Copyright &copy; <a href="https://jan-patrick.de" target="_blank">Jan Schneider</a> | <a href="mailto:marcus.schoch@hfg-gmuend.de">Marcus Schoch</a> 2018<br>
         <a href="/imprint/">imprint & data protection</a></p>
       </div>
     </footer>
