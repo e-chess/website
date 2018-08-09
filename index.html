@@ -65,7 +65,7 @@
       <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
           <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buyModalCenter">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buyModalCenter" onclick="sendButtonClick()">
               jetzt kaufen
           </button>
         </div>
@@ -225,7 +225,7 @@
         <div class="row">
           <div class="col-md-10 col-lg-8 mx-auto text-center">
 
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buyModalCenter">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buyModalCenter" onclick="sendButtonClick()">
               jetzt kaufen
             </button>
             <div class="mx-auto text-center">
@@ -310,14 +310,14 @@
             </button>
           </div>
           <div class="modal-body">
-              <form class="form-signin" id="mail_subscribe" method="post" action="buy.php" role="form" target="">
+              <form class="form-signin" id="mail_subscribe" role="form" target="">
                   <div class="text-left mb-4">
                     <p>Leider ist sense-chess bisher nicht käuflich erhältlich. <br>Sie dürfen uns bei Interesse aber gerne kontaktieren:</p>
                   </div>
             
                   <div class="form-label-group">
                     <label for="inputName">Name</label>
-                    <input type="name" id="inputEmail" class="form-control" placeholder="Ihr Name" name="name" required>
+                    <input type="name" id="inputName" class="form-control" placeholder="Ihr Name" name="name" required>
                   </div>
                   <br>
                   <div class="form-label-group">
@@ -326,11 +326,11 @@
                   </div>
                   <br>
                   <div class="form-label-group">
-                      <label for="inputEmail">Nachricht</label>
+                      <label for="inputMessage">Nachricht</label>
                       <input type="text" id="inputMessage" class="form-control" placeholder="Ihre Nachricht" name="subject" required>
                     </div>
                     <br><br>
-                    <input type="submit" class="btn btn-success btn-send" value="Senden" target="">
+                    <input type="submit" class="btn btn-success btn-send" onclick="sendMail()" value="Senden" target="">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Schliessen</button>
                   <br>  
                 </form>
@@ -365,16 +365,50 @@
         });
       }
     </script>
-
-    <script>
-      $('#mail_subscribe').submit(function() {
-        var post_data = $('#mail_subscribe').serialize();
-        $.post('buy.php', post_data, function(data) {
-        });
-      });
-    
+    <script type="text/javascript">
+    var sendMail = function ()
+    {
+      var from = document.getElementById("inputEmail");
+      var name = document.getElementById("inputEmail");
+      var subject = document.getElementById("inputEmail");
+      if(from != "" && name != "" && subject != "")
+        {      
+        var xhr = new XMLHttpRequest();
+        var url = ".../buy.php";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function ()
+        {
+            if (xhr.readyState === 4 && xhr.status === 200)
+            {
+                var json = JSON.parse(xhr.responseText);
+                console.log(json.fields);
+            }
+        };
+        var data = JSON.stringify({"from": from, "name": name, "subject": subject});
+        xhr.send(data);
+        console.log(data);
+      }   
+    }  
+    var sendButtonClick = function ()
+    {     
+        var xhr = new XMLHttpRequest();
+        var url = ".../buttonclick.php";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function ()
+        {
+            if (xhr.readyState === 4 && xhr.status === 200)
+            {
+                var json = JSON.parse(xhr.responseText);
+                console.log(json.fields);
+            }
+        };
+        var data = JSON.stringify({"what have you done?": "just clicked!"});
+        xhr.send(data);
+        console.log(data);
+    }  
     </script>
-
   </body>
 
 </html>
