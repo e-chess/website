@@ -1,0 +1,47 @@
+body {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+p {
+    width: 400px;
+    margin: auto;
+    text-align: center;
+}
+
+#playfooter {
+    background: #000000;
+}
+
+#board {
+    width: 40%;
+    margin: auto;
+    background: #000000;
+}
+
+.info {
+    width: 500px;
+    margin: auto;
+}
+
+.move-history {
+    max-height: 100px;
+    overflow-y: scroll;
+}
+
+@media handheld, only screen and (max-width:1040px){
+    #board {
+        width: 90%;
+        margin: auto
+    }
+    
+    .info {
+        width: 90%;
+        margin: auto;
+    }
+    
+    .move-history {
+        max-height: 20%;
+        overflow-y: scroll;
+    }    
+}
