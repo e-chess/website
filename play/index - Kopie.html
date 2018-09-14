@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Jan Schneider">
+		<meta name="description" content="sense-chess is a project by Marcus Schoch and Jan Schneider with Prof. Michael Schuster and Benjamin Thomsen at HfG Schwäbisch Gmünd.">
+		<!-- start App Icons -->
+		<link rel="apple-touch-icon" sizes="57x57" href="../img/icons/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="../img/icons/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="../img/icons/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="../img/icons/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="../img/icons/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="../img/icons/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="../img/icons/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="../img/icons/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="../img/icons/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="../img/icons/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="../img/icons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="../img/icons/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../img/icons/favicon-16x16.png">
+		<link rel="manifest" href="../img/icons/manifest.json">
+		<meta name="msapplication-TileColor" content="#000000">
+		<meta name="msapplication-TileImage" content="../img/icons/ms-icon-144x144.png">
+		<meta name="theme-color" content="#000000">
+		<!-- end App Icons -->		
+		<link rel="shortcut icon" href="../img/icon.png">
+		<link rel="icon" type="image/png" href="../img/icon.svg">
+		<link rel="image_src" href="../img/icon.svg" />
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <title>sense-chess | play online</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../css/grayscale.min.css" rel="stylesheet">
+    <!-- style of the board-->
+    <link rel="stylesheet" href="lib/chessboardjs/css/chessboard-0.3.0.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="https://sense-chess.de#page-top">sense-chess</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="https://sense-chess.de#about">Über</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="https://sense-chess.de#projects">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="https://sense-chess.de#signup">Kontakt</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- board Section -->
+    <section id="board" class="about-section text-center">
+      <div class="container">
+        <div id="board" class="board"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black small text-center text-white-50" id="playfooter">
+      <div class="container">
+        <p>Copyright &copy; <a href="https://jan-patrick.de" target="_blank">Jan Schneider</a> | <a href="mailto:marcus.schoch@hfg-gmuend.de">Marcus Schoch</a> 2018<br>
+          <a href="https://github.com/sense-chess/server" target="_blank">sources</a></p>
+          <a href="../imprint/">imprint & data protection</a></p>
+          <div class="boarddata">
+
+            <br>
+              <span>Positions evaluated: <span id="position-count"></span></span>
+              <br>
+              <span>Time: <span id="time"></span></span>
+              <br>
+              <span>Positions/s: <span id="positions-per-s"></span> </span>
+              <br>
+              <button onclick="showBestMove()">just highlight best move</button>
+              <button id="notificationbutton">best move as notification</button>
+              <br>
+              <div id="move-history" class="move-history"></div>    
+          </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="../vendor/font-awesome/js/all.js"></script>
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../js/grayscale.min.js"></script>
+    <script src="lib/jquery/jquery-3.2.1.min.js"></script>
+    <script src="lib/chessboardjs/js/chess.js"></script>
+    <script src="lib/chessboardjs/js/chessboard-0.3.0.js"></script>
+    <script src="script.js"></script>
+  </body>
+
+</html>
