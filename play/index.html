@@ -67,20 +67,6 @@
     <section id="board" class="about-section text-center">
       <div class="container">
         <div id="board" class="board"></div>
-        <div class="info">
-
-          <br>
-          <span>Positions evaluated: <span id="position-count"></span></span>
-          <br>
-          <span>Time: <span id="time"></span></span>
-          <br>
-          <span>Positions/s: <span id="positions-per-s"></span> </span>
-          <br>
-          <button onclick="showBestMove()">just highlight best move</button>
-          <button id="notificationbutton">best move as notification</button>
-          <br>
-          <div id="move-history" class="move-history"></div>    
-      </div>
       </div>
     </section>
 
@@ -88,7 +74,22 @@
     <footer class="bg-black small text-center text-white-50" id="playfooter">
       <div class="container">
         <p>Copyright &copy; <a href="https://jan-patrick.de" target="_blank">Jan Schneider</a> | <a href="mailto:marcus.schoch@hfg-gmuend.de">Marcus Schoch</a> 2018<br>
-        <a href="../imprint/">imprint & data protection</a></p>
+          <a href="https://github.com/sense-chess/server" target="_blank">sources</a></p>
+          <a href="../imprint/">imprint & data protection</a></p>
+          <div class="boarddata">
+
+            <br>
+              <span>Positions evaluated: <span id="position-count"></span></span>
+              <br>
+              <span>Time: <span id="time"></span></span>
+              <br>
+              <span>Positions/s: <span id="positions-per-s"></span> </span>
+              <br>
+              <button onclick="showBestMove()">just highlight best move</button>
+              <button id="notificationbutton">best move as notification</button>
+              <br>
+              <div id="move-history" class="move-history"></div>    
+          </div>
       </div>
     </footer>
 

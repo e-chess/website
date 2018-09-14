@@ -14,14 +14,16 @@ p {
 }
 
 #board {
-    width: 40%;
+    width: 30%;
     margin: auto;
     background: #000000;
 }
 
-.info {
+.boarddata {
     width: 500px;
+    height: 500px;
     margin: auto;
+    display: none;
 }
 
 .move-history {
@@ -31,11 +33,11 @@ p {
 
 @media handheld, only screen and (max-width:1040px){
     #board {
-        width: 90%;
+        width: 50%;
         margin: auto
     }
     
-    .info {
+    .boarddata {
         width: 90%;
         margin: auto;
     }
