@@ -5,9 +5,7 @@
 <br>
 <br>
 <p align="center">
-  These are the files of the project site to <a href="https://sense-chess.de">sense-chess</a>.
-  <br>
-  It is under permanent construction.
+  These are the files of the project site to <a href="https://iot.hfg-gmuend.de/projects/sense-chess">sense-chess</a>, which is not in use anymore.
   <br>
 </p>  
 <h4 align="center">Attribution</h4>
